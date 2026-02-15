@@ -27,7 +27,7 @@ class HomeController < ApplicationController
   end
 
   def read_and_render_index_html
-    contents = File.read(File.join(Rails.env.production? ? PROD_INDEX_PATH : DEV_INDEX_PATH, "index.html"))
+    contents = File.read(File.join(DEV_INDEX_PATH, "index.html"))
     contents.sub("%VITE_SHOPIFY_API_KEY%", ShopifyApp.configuration.api_key)
   end
 
